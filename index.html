@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="서울대학교 AI-미디어콘텐츠실 공식 페이지. AI 교육과 드라마·게임·웹툰 등 미디어 콘텐츠와 인공지능 결합 연구를 소개합니다.">
+  <meta name="theme-color" content="#003458">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="서울대학교 AI-미디어콘텐츠실 | AI Media Content Office, SNU">
+  <meta property="og:description" content="서울대학교 AI-미디어콘텐츠실 공식 페이지. AI 교육과 미디어 콘텐츠 분야의 AI 결합 연구를 소개합니다.">
+  <meta property="og:image" content="assets/images/campus.png">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="서울대학교 AI-미디어콘텐츠실 | AI Media Content Office, SNU">
+  <meta name="twitter:description" content="서울대학교 AI-미디어콘텐츠실 공식 페이지. AI 교육과 미디어 콘텐츠 분야의 AI 결합 연구를 소개합니다.">
+  <meta name="twitter:image" content="assets/images/campus.png">
+  <title>서울대학교 AI-미디어콘텐츠실 | AI Media Content Office, SNU</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/images/campus.png" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #003458;
+      --navy-deep: #00243d;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B7280;
+      --text-tertiary: #9CA3AF;
+      /* English body: darker for contrast with heavier weights */
+      --text-en: #374151;
+      --text-en-muted: #4B5563;
+      --bg-white: #FFFFFF;
+      --bg-light: #F7F8FA;
+      --bg-warm: #FAFBFC;
+      --border: #E5E7EB;
+      --border-light: #F0F1F3;
+      --accent-green: #2D5A3D;
+
+      --font-kr: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-en: 'Cormorant Garamond', 'Georgia', serif;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(80px + var(--safe-top));
+      font-size: 18px;
+      overflow-x: hidden;
+      overflow-x: clip;
+    }
+
+    body {
+      font-family: var(--font-kr);
+      color: var(--text-primary);
+      font-weight: 600;
+      background: var(--bg-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: clip;
+      text-rendering: optimizeLegibility;
+    }
+
+    a[href^="mailto:"] {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(0, 52, 88, 0.12);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 200;
+      padding: 12px 16px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 16px;
+      top: 16px;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+      padding-top: var(--safe-top);
+      padding-left: var(--safe-left);
+      padding-right: var(--safe-right);
+    }
+
+    .nav.scrolled {
+      box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 40px;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .nav-logo-kr {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo-en {
+      font-family: var(--font-en);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-en);
+      letter-spacing: 0.03em;
+    }
+
+    @media (min-width: 769px) {
+      .nav-logo-kr {
+        font-size: 19px;
+      }
+
+      .nav-logo-en {
+        font-size: 16px;
+      }
+
+      .nav-inner {
+        min-height: 76px;
+      }
+    }
+
+    .nav-contact {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 6px 4px;
+      margin: -6px -4px;
+      touch-action: manipulation;
+    }
+
+    .nav-contact:hover {
+      color: var(--navy);
+    }
+
+    @media (max-width: 768px) {
+      .nav-contact {
+        display: none;
+      }
+
+      .hero-title-kr-desktop {
+        display: none;
+      }
+
+      .hero-title-kr-mobile {
+        display: block;
+      }
+    }
+
+    /* 데스크톱에서만 모바일용 줄바꿈 숨김 (위 768px 규칙보다 뒤에 두면 display:none이 덮어써 버림 — min-width로 분리) */
+    @media (min-width: 769px) {
+      .hero-title-kr-mobile {
+        display: none;
+      }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      height: 100dvh;
+      min-height: 600px;
+      max-height: 900px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-color: #1a2835;
+      background-image: url('assets/images/campus.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 36, 61, 0.15) 0%,
+        rgba(0, 36, 61, 0.3) 40%,
+        rgba(0, 36, 61, 0.75) 100%
+      );
+    }
+
+    /* 모바일: 세로 화면이 좁아 cover 크롭 시 우측(건물·광장)이 중심에 오도록 */
+    @media (max-width: 768px) {
+      .hero-bg {
+        background-position: 92% center;
+      }
+    }
+
+    @media (max-width: 768px) and (orientation: landscape) {
+      .hero-bg {
+        background-position: 85% 40%;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 max(40px, var(--safe-right)) max(48px, calc(var(--safe-bottom) + 40px)) max(40px, var(--safe-left));
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero-title-kr {
+      font-size: clamp(30px, 3.9vw, 48px);
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 1.5;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.5s forwards;
+    }
+
+    .hero-title-en {
+      font-family: var(--font-en);
+      font-size: clamp(22px, 2.85vw, 34px);
+      font-weight: 600;
+      font-style: italic;
+      color: rgba(255,255,255,0.94);
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.7s forwards;
+    }
+
+    .hero-scroll {
+      position: static;
+      align-self: center;
+      margin-top: 32px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.2s forwards;
+    }
+
+    .hero-scroll span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.72);
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.8);
+      animation: scrollDown 1.8s ease infinite;
+    }
+
+    /* ─── SECTION COMMON ─── */
+    .section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 100px max(40px, var(--safe-right)) 100px max(40px, var(--safe-left));
+    }
+
+    .section-label {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .section-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--navy);
+      margin-bottom: 40px;
+      opacity: 0.4;
+    }
+
+    /* ─── ABOUT ─── */
+    .about {
+      background: var(--bg-white);
+    }
+
+    .about-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: stretch;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .about-text-kr {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.85;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .about-text-en {
+      font-family: var(--font-en);
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.8;
+      color: var(--text-en);
+      letter-spacing: 0.01em;
+      overflow-wrap: break-word;
+    }
+
+    /* ─── DIRECTOR ─── */
+    .director-section {
+      background: var(--bg-light);
+    }
+
+    .director-card {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .director-photo-wrap {
+      position: relative;
+    }
+
+    .director-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(145deg, #e8eaed 0%, #d1d5db 100%);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .director-photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .director-photo-accent {
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      width: 40px;
+      height: 40px;
+      border-top: 2px solid var(--navy);
+      border-left: 2px solid var(--navy);
+      opacity: 0.3;
+    }
+
+    .director-info {
+      padding-top: 8px;
+    }
+
+    .director-role {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .director-name-kr {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .director-name-en {
+      font-family: var(--font-en);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-en);
+      letter-spacing: 0.02em;
+      margin-bottom: 40px;
+    }
+
+    .director-bio {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .director-bio-item {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-light);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .director-bio-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .bio-kr {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.65;
+      letter-spacing: -0.01em;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .bio-en {
+      font-family: var(--font-en);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-en-muted);
+      line-height: 1.55;
+      letter-spacing: 0.01em;
+      overflow-wrap: break-word;
+    }
+
+    .bio-prefix {
+      color: var(--text-secondary);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.7);
+      padding: 60px max(40px, var(--safe-right)) max(60px, calc(var(--safe-bottom) + 48px)) max(40px, var(--safe-left));
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .footer-block-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.68);
+      margin-bottom: 16px;
+    }
+
+    .footer-address-kr {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .footer-address-en {
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.84);
+      letter-spacing: 0.01em;
+    }
+
+    .footer-map-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+      margin-top: 20px;
+    }
+
+    .footer-map-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 18px;
+      font-family: var(--font-kr);
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(255,255,255,0.1);
+    }
+
+    .footer-map-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.45);
+      color: #fff;
+    }
+
+    .footer-map-btn:focus-visible {
+      outline: 2px solid rgba(255,255,255,0.55);
+      outline-offset: 3px;
+    }
+
+    .footer-contact-email {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      margin-top: 4px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 0 10px;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+      touch-action: manipulation;
+    }
+
+    .footer-contact-email:hover {
+      color: #fff;
+      border-bottom-color: rgba(255,255,255,0.6);
+    }
+
+    .footer-bottom {
+      max-width: 1120px;
+      margin: 40px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copyright {
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.52);
+      letter-spacing: 0.03em;
+    }
+
+    .footer-snu {
+      font-family: var(--font-en);
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.62);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scrollDown {
+      0% { top: -100%; }
+      50% { top: 100%; }
+      100% { top: 100%; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 860px) {
+      html {
+        font-size: 17px;
+      }
+
+      .nav-inner {
+        padding: 10px max(24px, var(--safe-right)) 10px max(24px, var(--safe-left));
+      }
+
+      .section {
+        padding: 72px max(24px, var(--safe-right)) 72px max(24px, var(--safe-left));
+      }
+
+      .hero-content {
+        padding: 0 max(24px, var(--safe-right)) max(36px, calc(var(--safe-bottom) + 28px)) max(24px, var(--safe-left));
+      }
+
+      .hero-scroll {
+        margin-top: 24px;
+      }
+
+      .director-card {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .director-photo-wrap {
+        max-width: min(300px, 88vw);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .director-name-kr {
+        font-size: 34px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer {
+        padding: 48px max(24px, var(--safe-right)) max(48px, calc(var(--safe-bottom) + 40px)) max(24px, var(--safe-left));
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-title-kr {
+        line-height: 1.45;
+      }
+
+      .hero-title-en {
+        line-height: 1.45;
+      }
+
+      .hero-scroll {
+        margin-top: 20px;
+      }
+
+      .about-grid {
+        gap: 24px;
+        max-width: none;
+      }
+
+      .director-bio-item {
+        padding: 16px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      html {
+        font-size: 16px;
+      }
+
+      .hero {
+        min-height: 100dvh;
+        max-height: none;
+      }
+
+      .hero-title-kr {
+        font-size: clamp(22px, 6.2vw, 28px);
+      }
+
+      .hero-title-en {
+        font-size: clamp(17px, 4.5vw, 21px);
+      }
+
+      .section {
+        padding: 52px max(20px, var(--safe-right)) 52px max(20px, var(--safe-left));
+      }
+
+      .section-label {
+        font-size: 15px;
+      }
+
+      .section-divider {
+        margin-bottom: 32px;
+      }
+
+      .about-text-kr {
+        font-size: 18px;
+      }
+
+      .about-text-en {
+        font-size: 17px;
+      }
+
+      .director-name-kr {
+        font-size: 30px;
+      }
+
+      .director-name-en {
+        font-size: 22px;
+      }
+
+      .nav-logo-kr {
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .nav-logo-en {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-height: 520px) and (orientation: landscape) {
+      .hero {
+        min-height: 100dvh;
+        max-height: none;
+      }
+
+      .hero-content {
+        padding-bottom: max(32px, calc(var(--safe-bottom) + 24px));
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .hero-label,
+      .hero-title-kr,
+      .hero-title-en,
+      .hero-scroll {
+        animation: none;
+        opacity: 1;
+      }
+
+      .scroll-line::after {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav" aria-label="주요 내비게이션">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="nav-logo-kr">서울대학교 AI-미디어콘텐츠실</span>
+        <span class="nav-logo-en" lang="en">AI Media Content Office, SNU</span>
+      </div>
+      <a href="mailto:zeit2@snu.ac.kr" class="nav-contact" aria-label="이메일: zeit2@snu.ac.kr">zeit2@snu.ac.kr</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+  <!-- HERO -->
+  <section class="hero" aria-label="소개">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-label" lang="en">Seoul National University</div>
+      <h1 class="hero-title-kr">
+        <span class="hero-title-kr-desktop">서울대학교 AI-미디어콘텐츠실에<br>오신 것을 환영합니다.</span>
+        <span class="hero-title-kr-mobile">서울대학교<br>AI-미디어콘텐츠실에<br>오신 것을 환영합니다.</span>
+      </h1>
+      <p class="hero-title-en" lang="en">Welcome to the AI Media Content Office,<br>Seoul National University.</p>
+      <div class="hero-scroll" aria-hidden="true">
+        <span lang="en">Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" aria-labelledby="section-about">
+    <div class="section">
+      <h2 id="section-about" class="section-label reveal"><span lang="en">About</span></h2>
+      <div class="section-divider reveal" aria-hidden="true"></div>
+      <div class="about-grid">
+        <p class="about-text-kr reveal">
+          AI-미디어콘텐츠실은 2024년 5월 31일 개소하여, AI 교육과 드라마·게임·웹툰 등 다양한 콘텐츠 분야에서 인공지능과 결합된 연구를 수행하고 있습니다.
+        </p>
+        <p class="about-text-en reveal" lang="en">
+          Established on May 31, 2024, the office conducts research on AI education and AI-integrated content such as drama, games, and webtoons.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECTOR -->
+  <section class="director-section" aria-labelledby="section-director">
+    <div class="section">
+      <h2 id="section-director" class="section-label reveal"><span lang="en">Director</span></h2>
+      <div class="section-divider reveal" aria-hidden="true"></div>
+      <div class="director-card reveal">
+        <div class="director-photo-wrap">
+          <div class="director-photo">
+            <img
+              src="assets/images/director-photo.jpg"
+              alt="AI-미디어콘텐츠실 책임자 송민호"
+              width="827"
+              height="1063"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div class="director-photo-accent" aria-hidden="true"></div>
+        </div>
+        <div class="director-info">
+          <div class="director-role">책임자 · <span lang="en">Director</span></div>
+          <h3 class="director-name-kr">송민호</h3>
+          <p class="director-name-en" lang="en">Minho Song</p>
+
+          <ul class="director-bio">
+            <li class="director-bio-item">
+              <span class="bio-kr"><span class="bio-prefix">前</span> 한국전자기술연구원 교육사업부 교수</span>
+              <span class="bio-en" lang="en">Former Professor, Korea Electronics Technology Institute</span>
+            </li>
+            <li class="director-bio-item">
+              <span class="bio-kr"><span class="bio-prefix">前</span> 해군사관학교 사회인문학처 교수</span>
+              <span class="bio-en" lang="en">Former Professor, Republic of Korea Naval Academy</span>
+            </li>
+            <li class="director-bio-item">
+              <span class="bio-kr">서울대학교 지리학과 졸업</span>
+              <span class="bio-en" lang="en">B.A., Department of Geography, Seoul National University</span>
+            </li>
+            <li class="director-bio-item">
+              <span class="bio-kr">서울대학교 대학원 윤리교육과 졸업</span>
+              <span class="bio-en" lang="en">M.A., Department of Ethics Education, Seoul National University</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-block">
+        <div class="footer-block-label" lang="en">Address</div>
+        <p class="footer-address-kr">
+          서울특별시 관악구 관악로 1<br>
+          서울대학교 대림국제관 137-1동 5층 516호
+        </p>
+        <p class="footer-address-en" lang="en">
+          516, 5F, Bldg. 137-1, Daerim International Hall<br>
+          Seoul National University, 1 Gwanak-ro, Gwanak-gu, Seoul, Korea
+        </p>
+        <div class="footer-map-actions" role="group" aria-label="지도에서 위치 보기">
+          <a
+            class="footer-map-btn"
+            href="https://www.google.com/maps/search/?api=1&amp;query=%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EA%B4%80%EC%95%85%EC%BA%A0%ED%8D%BC%EC%8A%A4%20%EB%8C%80%EB%A6%BC%EA%B5%AD%EC%A0%9C%EA%B4%80"
+            target="_blank"
+            rel="noopener noreferrer"
+            lang="en"
+            aria-label="Open Daerim International Hall, Seoul National University Gwanak Campus in Google Maps"
+          >Google Map</a>
+          <a
+            class="footer-map-btn"
+            href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EA%B4%80%EC%95%85%EC%BA%A0%ED%8D%BC%EC%8A%A4%20%EB%8C%80%EB%A6%BC%EA%B5%AD%EC%A0%9C%EA%B4%80"
+            target="_blank"
+            rel="noopener noreferrer"
+            lang="en"
+            aria-label="Open Daerim International Hall, Seoul National University Gwanak Campus in Naver Map"
+          >Naver Map</a>
+        </div>
+      </div>
+      <div class="footer-block">
+        <div class="footer-block-label" lang="en">Contact</div>
+        <a href="mailto:zeit2@snu.ac.kr" class="footer-contact-email" aria-label="이메일: zeit2@snu.ac.kr">zeit2@snu.ac.kr</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copyright" lang="en">© 2026 AI Media Content Office, Seoul National University</span>
+      <span class="footer-snu" lang="en">Seoul National University</span>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Reveal on scroll (slightly earlier on narrow viewports for mobile UX)
+    const revealEls = document.querySelectorAll('.reveal');
+    const narrow = window.matchMedia('(max-width: 640px)');
+    const revealOpts = {
+      threshold: narrow.matches ? 0.08 : 0.12,
+      rootMargin: narrow.matches ? '0px 0px -24px 0px' : '0px'
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, revealOpts);
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
