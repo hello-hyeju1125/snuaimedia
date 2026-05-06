@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="서울대학교 AI-미디어콘텐츠실 AI 교육 프로그램 소개 페이지">
+  <meta name="theme-color" content="#003458">
+  <title>AI 교육 프로그램 | 서울대학교 AI-미디어콘텐츠실</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #003458;
+      --navy-deep: #00243d;
+      --navy-soft: #0c4a78;
+      --text-primary: #1A1A1A;
+      --text-secondary: #5b6574;
+      --text-tertiary: #8892a0;
+      --text-en: #374151;
+      --text-en-muted: #4B5563;
+      --bg-white: #FFFFFF;
+      --bg-light: #eef2f7;
+      --bg-warm: #f5f7fa;
+      --surface: #FFFFFF;
+      --border: #d6dde7;
+      --border-strong: #b9c2d0;
+      --border-light: #e6ebf2;
+      --shadow-sm: 0 4px 14px rgba(15,23,42,.06);
+      --shadow-md: 0 12px 28px rgba(15,23,42,.1);
+      --shadow-lg: 0 24px 50px rgba(0,36,61,.18);
+      --accent-green: #2D5A3D;
+      --font-kr: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-en: 'Cormorant Garamond', 'Georgia', serif;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(90px + var(--safe-top)); font-size: 18px; overflow-x: clip; }
+    body { font-family: var(--font-kr); color: var(--text-primary); font-weight: 600; background: var(--bg-white); overflow-x: clip; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 200; padding: 12px 16px; background: var(--navy); color: #fff; text-decoration: none; }
+    .skip-link:focus { left: 16px; top: 16px; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); transition: all .3s ease; padding-top: var(--safe-top); }
+    .nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,.06); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 10px max(40px, var(--safe-right)); min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 10px 16px; }
+    .nav-logo { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1 1 auto; }
+    .nav-logo-kr { font-size: 16px; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
+    .nav-logo-en { font-family: var(--font-en); font-size: 14px; font-weight: 600; color: var(--text-en); letter-spacing: 0.03em; }
+    .nav-contact { font-size: 15px; font-weight: 700; color: var(--text-primary); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+    .nav-contact:hover { color: var(--navy); }
+
+    /* HERO */
+    .page-hero {
+      margin-top: calc(76px + var(--safe-top));
+      background:
+        radial-gradient(1200px 500px at 110% -10%, rgba(0,52,88,.16), transparent 60%),
+        linear-gradient(180deg, #fbfcfe 0%, #eef2f7 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner { max-width: 1160px; margin: 0 auto; padding: 96px max(40px, var(--safe-right)) 96px max(40px, var(--safe-left)); }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--navy);
+      padding: 8px 14px; border: 1px solid rgba(0,52,88,.18); background: rgba(255,255,255,.85); margin-bottom: 28px;
+    }
+    .hero-eyebrow::before { content: ""; width: 6px; height: 6px; background: var(--navy); border-radius: 50%; }
+    .hero-title { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.32; letter-spacing: -0.03em; max-width: 18ch; margin-bottom: 18px; }
+    .hero-title strong { color: var(--navy); font-weight: 800; }
+    .hero-sub { font-size: 18px; line-height: 1.7; color: var(--text-en-muted); max-width: 56ch; }
+    .hero-pillars { margin-top: 44px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 880px; }
+    .pillar { padding: 22px 22px 20px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); position: relative; }
+    .pillar::before { content: ""; position: absolute; top: 0; left: 0; width: 36px; height: 2px; background: var(--navy); }
+    .pillar-k { font-size: 12px; font-weight: 800; color: var(--navy); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 8px; }
+    .pillar-v { font-size: 17px; line-height: 1.55; color: var(--text-primary); letter-spacing: -0.005em; }
+
+    /* SECTION COMMON */
+    .section { max-width: 1160px; margin: 0 auto; padding: 120px max(40px, var(--safe-right)); }
+    .section-band { width: 100%; }
+    .section-band--white { background: var(--bg-white); }
+    .section-band--light { background: var(--bg-warm); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+    .section-band--navy { background: linear-gradient(160deg, #002238 0%, #003e6b 100%); color: #fff; border-top: 1px solid rgba(255,255,255,.06); }
+    .section-head { max-width: 720px; margin-bottom: 44px; }
+    .section-label { font-size: 13px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--navy); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ""; width: 22px; height: 1px; background: var(--navy); }
+    .section-band--navy .section-label { color: #b9d2e6; }
+    .section-band--navy .section-label::before { background: #b9d2e6; }
+    .section-title { font-size: clamp(28px, 3vw, 40px); line-height: 1.35; letter-spacing: -0.02em; margin-bottom: 14px; }
+    .section-band--navy .section-title { color: #fff; }
+    .section-desc { font-size: 17px; line-height: 1.7; color: var(--text-en-muted); }
+    .section-band--navy .section-desc { color: rgba(255,255,255,.78); }
+
+    /* TRACK SELECTOR */
+    .track-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .track-card {
+      display: grid; grid-template-rows: auto 1fr auto;
+      padding: 28px; background: var(--surface); border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm); text-decoration: none; color: inherit;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      position: relative;
+    }
+    .track-card::after { content: "→"; position: absolute; right: 24px; bottom: 24px; color: var(--navy); font-size: 18px; opacity: .55; transition: transform .25s ease, opacity .25s ease; }
+    .track-card:hover, .track-card:focus-visible { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
+    .track-card:hover::after { transform: translateX(4px); opacity: 1; }
+    .track-num { font-family: var(--font-en); font-style: italic; font-size: 22px; color: var(--navy); letter-spacing: .04em; margin-bottom: 10px; font-weight: 700; }
+    .track-name { font-size: 22px; line-height: 1.4; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .track-summary { font-size: 15px; line-height: 1.62; color: var(--text-en-muted); margin-bottom: 16px; }
+    .track-target { font-size: 13px; color: var(--text-secondary); border-top: 1px solid var(--border-light); padding-top: 14px; }
+    .track-target span { color: var(--text-primary); font-weight: 700; }
+
+    /* TRACK DETAILS */
+    .track-detail-wrap { background: var(--bg-warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .track-detail {
+      max-width: 1160px; margin: 0 auto; padding: 110px max(40px, var(--safe-right));
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .track-detail:last-child { border-bottom: none; }
+    .track-detail.reverse .track-content { order: 2; }
+    .track-detail.reverse .track-image { order: 1; }
+    .track-meta { font-family: var(--font-en); font-style: italic; font-size: 18px; color: var(--navy); margin-bottom: 12px; letter-spacing: .04em; font-weight: 600; }
+    .track-detail-title { font-size: clamp(26px, 2.6vw, 34px); line-height: 1.4; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .track-detail-purpose { font-size: 17px; line-height: 1.7; color: var(--text-primary); margin-bottom: 28px; padding-left: 14px; border-left: 3px solid var(--navy); }
+    .info-block { margin-bottom: 24px; }
+    .info-label { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--navy); margin-bottom: 12px; }
+    .bullet-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 18px; }
+    .bullet-list li { display: grid; grid-template-columns: 16px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: var(--text-primary); }
+    .bullet-list li::before { content: ""; width: 6px; height: 6px; background: var(--navy); border-radius: 50%; margin-top: 9px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip { padding: 6px 12px; border: 1px solid var(--border); font-size: 13px; color: var(--text-primary); background: #fff; letter-spacing: .01em; }
+    .effect-card { padding: 18px 20px; background: var(--navy); color: #fff; margin-top: 8px; }
+    .effect-card .info-label { color: #aac6dd; margin-bottom: 6px; }
+    .effect-card .value { font-size: 16px; line-height: 1.55; }
+    .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; font-size: 13px; color: var(--text-secondary); }
+    .meta-tag { padding: 6px 10px; border: 1px solid var(--border); background: #fff; }
+    .meta-tag strong { color: var(--navy); margin-right: 6px; }
+    .track-image { position: relative; }
+    .track-image img { width: 100%; height: 100%; min-height: 380px; object-fit: cover; border: 1px solid var(--border); box-shadow: var(--shadow-md); }
+    .track-image-badge { position: absolute; top: 16px; left: 16px; background: var(--navy); color: #fff; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding: 8px 12px; }
+
+    /* DIFFERENTIATORS */
+    .diff-grid { margin-top: 16px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .diff-card {
+      padding: 28px 24px 30px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+      backdrop-filter: blur(6px);
+    }
+    .diff-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.2); }
+    .diff-icon { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.3); margin-bottom: 18px; color: #fff; }
+    .diff-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .diff-name { font-size: 19px; line-height: 1.45; color: #fff; margin-bottom: 10px; letter-spacing: -0.01em; }
+    .diff-desc { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,.78); }
+
+    /* CASE LIBRARY */
+    .case-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .case-card { padding: 22px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); display: grid; gap: 10px; }
+    .case-tag { font-family: var(--font-en); font-style: italic; font-size: 14px; color: var(--navy); letter-spacing: .04em; }
+    .case-role { font-size: 17px; line-height: 1.45; letter-spacing: -0.01em; }
+    .case-text { font-size: 14px; line-height: 1.62; color: var(--text-en-muted); }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(155deg, #00243d 0%, #003458 60%, #054b7a 100%); color: #fff; }
+    .cta-inner { max-width: 1160px; margin: 0 auto; padding: 110px max(40px, var(--safe-right)); display: grid; grid-template-columns: 1.4fr .9fr; gap: 60px; align-items: center; }
+    .cta-title { font-size: clamp(28px, 3vw, 40px); line-height: 1.4; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .cta-desc { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,.78); max-width: 50ch; }
+    .cta-actions { display: flex; flex-direction: column; gap: 12px; }
+    .cta-btn { min-height: 52px; padding: 14px 22px; font-size: 15px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; justify-content: space-between; gap: 18px; border: 1px solid rgba(255,255,255,.36); color: #fff; transition: all .2s; }
+    .cta-btn::after { content: "→"; }
+    .cta-btn:hover { border-color: #fff; background: rgba(255,255,255,.06); }
+    .cta-btn.primary { background: #fff; color: var(--navy); border-color: #fff; }
+    .cta-btn.primary:hover { background: #f1f5f9; }
+    .cta-contact { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.18); font-size: 14px; color: rgba(255,255,255,.66); line-height: 1.7; }
+
+    /* FOOTER */
+    .footer { background: var(--navy-deep); color: rgba(255,255,255,0.62); padding: 32px max(40px, var(--safe-right)) max(40px, calc(var(--safe-bottom) + 24px)); border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 13px; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .case-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .diff-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 860px) {
+      html { font-size: 17px; }
+      .nav-inner { padding: 10px max(24px, var(--safe-right)); }
+      .hero-inner { padding: 70px max(24px, var(--safe-right)); }
+      .hero-title { line-height: 1.38; }
+      .hero-sub { font-size: 17px; }
+      .hero-pillars { grid-template-columns: 1fr; gap: 10px; max-width: 460px; }
+      .section, .track-detail, .cta-inner { padding: 72px max(24px, var(--safe-right)); }
+      .section-head { margin-bottom: 32px; }
+      .track-grid { grid-template-columns: 1fr; }
+      .track-card { padding: 24px; }
+      .track-detail { grid-template-columns: 1fr; gap: 32px; }
+      .track-detail.reverse .track-content, .track-detail.reverse .track-image { order: initial; }
+      .bullet-list { grid-template-columns: 1fr; }
+      .case-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cta-inner { grid-template-columns: 1fr; gap: 32px; }
+      .cta-actions { width: 100%; }
+      .cta-btn { width: 100%; }
+      .track-image img { min-height: 280px; }
+    }
+    @media (min-width: 861px) {
+      #diff-title {
+        font-size: clamp(26px, 2.6vw, 38px);
+        white-space: nowrap;
+      }
+      #cta-title {
+        font-size: clamp(26px, 2.7vw, 38px);
+        white-space: nowrap;
+      }
+    }
+    @media (max-width: 480px) {
+      html { scroll-padding-top: calc(78px + var(--safe-top)); }
+      html { font-size: 16px; }
+      .nav-logo-kr { font-size: 14px; }
+      .nav-logo-en { font-size: 12px; }
+      .nav-contact { display: none; }
+      .section, .track-detail, .cta-inner, .hero-inner { padding: 56px max(20px, var(--safe-right)); }
+      .hero-title { line-height: 1.42; }
+      .hero-sub { font-size: 16px; line-height: 1.72; }
+      .pillar { padding: 18px 16px; }
+      .pillar-v { font-size: 16px; }
+      .track-card { padding: 20px 18px; min-height: 164px; }
+      .track-card::after { display: none; }
+      .track-name { font-size: 20px; }
+      .track-summary { font-size: 15px; }
+      .track-target { font-size: 14px; }
+      .track-detail-purpose { font-size: 16px; margin-bottom: 20px; }
+      .info-block { margin-bottom: 18px; }
+      .meta-row { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 14px; }
+      .meta-tag { font-size: 13px; padding: 8px 10px; }
+      .track-image-badge { top: 10px; left: 10px; font-size: 11px; padding: 6px 9px; }
+      .diff-card { padding: 22px 18px; }
+      .diff-name { font-size: 18px; }
+      .diff-desc { font-size: 15px; line-height: 1.6; }
+      .case-card { padding: 18px; }
+      .case-role { font-size: 18px; }
+      .case-text { font-size: 15px; line-height: 1.65; }
+      .cta-title { font-size: clamp(24px, 7vw, 30px); line-height: 1.45; white-space: normal; }
+      .cta-desc { font-size: 15px; }
+      .cta-btn { min-height: 50px; font-size: 15px; padding: 12px 16px; }
+      .footer-inner { font-size: 12px; row-gap: 8px; }
+      .case-grid, .diff-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: clamp(28px, 7.6vw, 34px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+  <nav class="nav" id="nav" aria-label="주요 내비게이션">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="nav-logo-kr">서울대학교 AI-미디어콘텐츠실</span>
+        <span class="nav-logo-en" lang="en">AI Media Content Office, SNU</span>
+      </div>
+      <a href="mailto:zeit2@snu.ac.kr" class="nav-contact" aria-label="이메일: zeit2@snu.ac.kr">zeit2@snu.ac.kr</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="page-hero" aria-label="AI 교육 프로그램 소개">
+      <div class="hero-inner">
+        <span class="hero-eyebrow reveal">Education Program</span>
+        <h1 class="hero-title reveal">AI를 배우는 교육을 넘어,<br><strong>AI로 만드는 교육.</strong></h1>
+        <p class="hero-sub reveal">서울대학교가 제안하는 4가지 맞춤형 AI 교육 트랙</p>
+
+        <div class="hero-pillars reveal" aria-label="프로그램 핵심 가치">
+          <div class="pillar">
+            <div class="pillar-k">Approach</div>
+            <div class="pillar-v">단계형 커리큘럼 설계</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-k">Method</div>
+            <div class="pillar-v">실습·프로젝트 중심</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-k">Outcome</div>
+            <div class="pillar-v">성과로 이어지는 교육</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACK SELECTOR -->
+    <div class="section-band section-band--white">
+      <section id="track-selector" class="section" aria-labelledby="track-selector-title">
+        <div class="section-head">
+          <h2 class="section-label reveal">Tracks</h2>
+          <h3 id="track-selector-title" class="section-title reveal">당신에게 맞는 과정은?</h3>
+          <p class="section-desc reveal">목표와 대상에 따라 4개 트랙 중 적합한 과정을 선택하세요.</p>
+        </div>
+        <div id="track-grid" class="track-grid"></div>
+      </section>
+    </div>
+
+    <!-- TRACK DETAILS -->
+    <section id="track-detail-wrap" class="track-detail-wrap" aria-label="트랙 상세"></section>
+
+    <!-- DIFFERENTIATORS -->
+    <div class="section-band section-band--navy">
+      <section class="section" aria-labelledby="diff-title">
+        <div class="section-head">
+          <h2 class="section-label reveal">Why SNU</h2>
+          <h3 id="diff-title" class="section-title reveal">서울대학교만이 제공할 수 있는 차별화 포인트</h3>
+          <p class="section-desc reveal">전문성과 신뢰의 깊이가 다른 AI 교육.</p>
+        </div>
+        <div id="diff-grid" class="diff-grid"></div>
+      </section>
+    </div>
+
+    <!-- CASE LIBRARY -->
+    <div class="section-band section-band--white">
+      <section class="section" aria-labelledby="case-title">
+        <div class="section-head">
+          <h2 class="section-label reveal">Case Library</h2>
+          <h3 id="case-title" class="section-title reveal">맞춤형 적용 사례</h3>
+          <p class="section-desc reveal">현장 환경에 맞춰 구성된 다양한 운영 사례를 확인하세요.</p>
+        </div>
+        <div id="case-grid" class="case-grid"></div>
+      </section>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-inner">
+        <div class="reveal">
+          <h2 id="cta-title" class="cta-title">기관/조직에 맞는 맞춤 교육이 필요하신가요?</h2>
+          <p class="cta-desc">목표와 대상, 일정에 맞춰 커리큘럼을 함께 설계해 드립니다.</p>
+          <p class="cta-contact">담당자 연락처: 02-0000-0000 · zeit2@snu.ac.kr</p>
+        </div>
+        <div class="cta-actions reveal">
+          <a class="cta-btn primary" href="mailto:zeit2@snu.ac.kr?subject=AI%20%EA%B5%90%EC%9C%A1%20%EB%AC%B8%EC%9D%98">교육 문의하기</a>
+          <a class="cta-btn" href="#" aria-disabled="true">교육 자료 다운로드</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span lang="en">© 2026 AI Media Content Office, Seoul National University</span>
+      <span>Seoul National University</span>
+    </div>
+  </footer>
+
+  <script src="/program/program-data.js"></script>
+  <script src="/program/program-page.js"></script>
+</body>
+</html>
