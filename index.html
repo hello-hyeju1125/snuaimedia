@@ -126,12 +126,27 @@
       gap: 10px 16px;
     }
 
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .nav-logo-mark {
+      flex-shrink: 0;
+      display: block;
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+    }
+
     .nav-logo {
       display: flex;
       flex-direction: column;
       gap: 1px;
       min-width: 0;
-      flex: 1 1 auto;
     }
 
     .nav-logo-kr {
@@ -186,6 +201,14 @@
     @media (max-width: 768px) {
       .nav-contact {
         display: none;
+      }
+
+      .nav-logo-mark {
+        height: 38px;
+      }
+
+      .nav-brand {
+        gap: 10px;
       }
 
       .hero-title-kr-desktop {
@@ -396,6 +419,117 @@
       overflow-wrap: break-word;
     }
 
+    /* ─── PARTNERS ─── */
+    .partners-section {
+      background: var(--bg-warm);
+    }
+
+    .partners-header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .partners-subtitle {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .partners-hint {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .partners-marquee {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 12px;
+    }
+
+    .partners-marquee-row {
+      overflow: hidden;
+      width: 100%;
+      mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        #000 6%,
+        #000 94%,
+        transparent 100%
+      );
+      -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        #000 6%,
+        #000 94%,
+        transparent 100%
+      );
+    }
+
+    .partners-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: partners-marquee-left 48s linear infinite;
+      will-change: transform;
+    }
+
+    .partners-marquee-row--reverse .partners-marquee-track {
+      animation-name: partners-marquee-right;
+      animation-duration: 42s;
+    }
+
+    .partners-pills {
+      list-style: none;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 56px;
+      padding-right: 56px;
+      flex-shrink: 0;
+    }
+
+    @keyframes partners-marquee-left {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes partners-marquee-right {
+      from {
+        transform: translateX(-50%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    .partners-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 4px;
+      font-size: 26px;
+      font-weight: 700;
+      color: #B5BAC2;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: color 0.3s ease;
+    }
+
+    .partners-item:hover {
+      color: var(--navy);
+    }
+
     /* ─── DIRECTOR ─── */
     .director-section {
       background: var(--bg-light);
@@ -513,6 +647,102 @@
       color: var(--text-secondary);
       font-size: 15px;
       font-weight: 600;
+    }
+
+    /* ─── COMMITTEE ─── */
+    .committee-section {
+      background: var(--bg-white);
+    }
+
+    .committee-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px 32px;
+    }
+
+    .committee-card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .committee-photo-wrap {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .committee-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(145deg, #e8eaed 0%, #d1d5db 100%);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .committee-photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.6s ease;
+    }
+
+    .committee-card:hover .committee-photo img {
+      transform: scale(1.04);
+    }
+
+    .committee-photo-accent {
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      width: 28px;
+      height: 28px;
+      border-top: 2px solid var(--navy);
+      border-left: 2px solid var(--navy);
+      opacity: 0.28;
+    }
+
+    .committee-subtitle {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+
+    .committee-name-kr {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin-bottom: 4px;
+      word-break: keep-all;
+    }
+
+    .committee-name-en {
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-en);
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+
+    .committee-tag {
+      margin-top: 10px;
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      padding: 4px 10px;
+      border: 1px solid rgba(0, 52, 88, 0.22);
+      border-radius: 999px;
+      background: rgba(0, 52, 88, 0.04);
     }
 
     /* ─── FOOTER ─── */
@@ -708,6 +938,11 @@
         font-size: 34px;
       }
 
+      .committee-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 24px;
+      }
+
       .footer-inner {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -742,8 +977,30 @@
         max-width: none;
       }
 
+      .partners-item {
+        font-size: 22px;
+      }
+
+      .partners-pills {
+        gap: 44px;
+        padding-right: 44px;
+      }
+
       .director-bio-item {
         padding: 16px 0;
+      }
+
+      .committee-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 36px 20px;
+      }
+
+      .committee-name-kr {
+        font-size: 19px;
+      }
+
+      .committee-name-en {
+        font-size: 15px;
       }
     }
 
@@ -785,12 +1042,50 @@
         font-size: 17px;
       }
 
+      .partners-subtitle {
+        font-size: 17px;
+      }
+
+      .partners-hint {
+        font-size: 12px;
+      }
+
+      .partners-item {
+        font-size: 19px;
+      }
+
+      .partners-pills {
+        gap: 36px;
+        padding-right: 36px;
+      }
+
       .director-name-kr {
         font-size: 30px;
       }
 
       .director-name-en {
         font-size: 22px;
+      }
+
+      .committee-grid {
+        gap: 28px 16px;
+      }
+
+      .committee-name-kr {
+        font-size: 17px;
+      }
+
+      .committee-name-en {
+        font-size: 14px;
+      }
+
+      .committee-tag {
+        font-size: 11px;
+        padding: 3px 9px;
+      }
+
+      .nav-logo-mark {
+        height: 32px;
       }
 
       .nav-logo-kr {
@@ -840,6 +1135,33 @@
       .scroll-line::after {
         animation: none;
       }
+
+      .partners-marquee-track {
+        animation: none !important;
+        transform: none !important;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .partners-marquee-row {
+        overflow: visible;
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
+
+      .partners-pills--clone {
+        display: none;
+      }
+
+      .partners-pills {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        padding-right: 0;
+        gap: 32px;
+        row-gap: 12px;
+      }
     }
   </style>
 </head>
@@ -850,9 +1172,20 @@
   <!-- NAV -->
   <nav class="nav" id="nav" aria-label="주요 내비게이션">
     <div class="nav-inner">
-      <div class="nav-logo">
-        <span class="nav-logo-kr">서울대학교 AI-미디어콘텐츠실</span>
-        <span class="nav-logo-en" lang="en">AI Media Content Office, SNU</span>
+      <div class="nav-brand">
+        <img
+          class="nav-logo-mark"
+          src="assets/images/snu_mark.png"
+          alt="서울대학교"
+          width="800"
+          height="800"
+          loading="eager"
+          decoding="async"
+        >
+        <div class="nav-logo">
+          <span class="nav-logo-kr">서울대학교 AI-미디어콘텐츠실</span>
+          <span class="nav-logo-en" lang="en">AI Media Content Office, SNU</span>
+        </div>
       </div>
       <a href="mailto:zeit2@snu.ac.kr" class="nav-contact" aria-label="이메일: zeit2@snu.ac.kr">zeit2@snu.ac.kr</a>
     </div>
@@ -888,6 +1221,69 @@
         <p class="about-text-en reveal" lang="en">
           Established on May 31, 2024, the office conducts research on AI education and AI-integrated content such as drama, games, and webtoons.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners-section" aria-labelledby="section-partners">
+    <div class="section">
+      <h2 id="section-partners" class="section-label reveal"><span lang="en">Partners</span></h2>
+      <div class="section-divider reveal" aria-hidden="true"></div>
+      <div class="partners-header reveal">
+        <p class="partners-subtitle">협력 기업 및 기관</p>
+      </div>
+      <div class="partners-marquee reveal" role="region" aria-label="협력 기업 및 기관 목록">
+        <div class="partners-marquee-row">
+          <div class="partners-marquee-track">
+            <ul class="partners-pills" role="list">
+              <li class="partners-item">ByteDance</li>
+              <li class="partners-item">SF EXPRESS</li>
+              <li class="partners-item">iFlytek</li>
+              <li class="partners-item">HD현대오일뱅크</li>
+            </ul>
+            <ul class="partners-pills partners-pills--clone" role="presentation" aria-hidden="true">
+              <li class="partners-item">ByteDance</li>
+              <li class="partners-item">SF EXPRESS</li>
+              <li class="partners-item">iFlytek</li>
+              <li class="partners-item">HD현대오일뱅크</li>
+            </ul>
+          </div>
+        </div>
+        <div class="partners-marquee-row partners-marquee-row--reverse">
+          <div class="partners-marquee-track">
+            <ul class="partners-pills" role="list">
+              <li class="partners-item">NC AI</li>
+              <li class="partners-item">아모레퍼시픽</li>
+              <li class="partners-item">EBS</li>
+              <li class="partners-item">㈜교원그룹</li>
+              <li class="partners-item">㈜삼영물류</li>
+            </ul>
+            <ul class="partners-pills partners-pills--clone" role="presentation" aria-hidden="true">
+              <li class="partners-item">NC AI</li>
+              <li class="partners-item">아모레퍼시픽</li>
+              <li class="partners-item">EBS</li>
+              <li class="partners-item">㈜교원그룹</li>
+              <li class="partners-item">㈜삼영물류</li>
+            </ul>
+          </div>
+        </div>
+        <div class="partners-marquee-row">
+          <div class="partners-marquee-track">
+            <ul class="partners-pills" role="list">
+              <li class="partners-item">JUSPEACE재단</li>
+              <li class="partners-item">아리랑국제방송</li>
+              <li class="partners-item">제주도투자청</li>
+              <li class="partners-item">강남구청</li>
+            </ul>
+            <ul class="partners-pills partners-pills--clone" role="presentation" aria-hidden="true">
+              <li class="partners-item">JUSPEACE재단</li>
+              <li class="partners-item">아리랑국제방송</li>
+              <li class="partners-item">제주도투자청</li>
+              <li class="partners-item">강남구청</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -936,6 +1332,105 @@
           </ul>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- COMMITTEE -->
+  <section class="committee-section" aria-labelledby="section-committee">
+    <div class="section">
+      <h2 id="section-committee" class="section-label reveal"><span lang="en">Steering Committee</span></h2>
+      <p class="committee-subtitle reveal">운영 위원</p>
+      <div class="section-divider reveal" aria-hidden="true"></div>
+      <ul class="committee-grid reveal" role="list">
+        <li class="committee-card">
+          <div class="committee-photo-wrap">
+            <div class="committee-photo">
+              <img src="assets/images/sj_kim.jpeg" alt="김석준 운영위원" width="600" height="800" loading="lazy" decoding="async">
+            </div>
+            <div class="committee-photo-accent" aria-hidden="true"></div>
+          </div>
+          <h3 class="committee-name-kr">김석준</h3>
+          <p class="committee-name-en" lang="en">Seokjun Kim</p>
+        </li>
+
+        <li class="committee-card">
+          <div class="committee-photo-wrap">
+            <div class="committee-photo">
+              <img src="assets/images/w_park.jpg" alt="박우 운영위원" width="600" height="800" loading="lazy" decoding="async">
+            </div>
+            <div class="committee-photo-accent" aria-hidden="true"></div>
+          </div>
+          <h3 class="committee-name-kr">박우</h3>
+          <p class="committee-name-en" lang="en">Woo Park</p>
+        </li>
+
+        <li class="committee-card">
+          <div class="committee-photo-wrap">
+            <div class="committee-photo">
+              <img src="assets/images/s_yang.jpg" alt="양샤오난 운영위원" width="600" height="800" loading="lazy" decoding="async">
+            </div>
+            <div class="committee-photo-accent" aria-hidden="true"></div>
+          </div>
+          <h3 class="committee-name-kr">양샤오난</h3>
+          <p class="committee-name-en" lang="en">Xiaonan Yang</p>
+        </li>
+
+        <li class="committee-card">
+          <div class="committee-photo-wrap">
+            <div class="committee-photo">
+              <img src="assets/images/jh_yoo.png" alt="유제혁 운영위원" width="600" height="800" loading="lazy" decoding="async">
+            </div>
+            <div class="committee-photo-accent" aria-hidden="true"></div>
+          </div>
+          <h3 class="committee-name-kr">유제혁</h3>
+          <p class="committee-name-en" lang="en">Jehyuk Yoo</p>
+        </li>
+
+        <li class="committee-card">
+          <div class="committee-photo-wrap">
+            <div class="committee-photo">
+              <img src="assets/images/s_lee.jpg" alt="이상근 운영위원" width="600" height="800" loading="lazy" decoding="async">
+            </div>
+            <div class="committee-photo-accent" aria-hidden="true"></div>
+          </div>
+          <h3 class="committee-name-kr">이상근</h3>
+          <p class="committee-name-en" lang="en">Sanggeun Lee</p>
+        </li>
+
+        <li class="committee-card">
+          <div class="committee-photo-wrap">
+            <div class="committee-photo">
+              <img src="assets/images/ys_lee.png" alt="이연수 운영위원, AI 영화감독" width="600" height="800" loading="lazy" decoding="async">
+            </div>
+            <div class="committee-photo-accent" aria-hidden="true"></div>
+          </div>
+          <h3 class="committee-name-kr">이연수</h3>
+          <p class="committee-name-en" lang="en">Yeonsu Lee</p>
+          <span class="committee-tag">AI 영화감독</span>
+        </li>
+
+        <li class="committee-card">
+          <div class="committee-photo-wrap">
+            <div class="committee-photo">
+              <img src="assets/images/ws_cho.jpeg" alt="조우순 운영위원" width="600" height="800" loading="lazy" decoding="async">
+            </div>
+            <div class="committee-photo-accent" aria-hidden="true"></div>
+          </div>
+          <h3 class="committee-name-kr">조우순</h3>
+          <p class="committee-name-en" lang="en">Woosoon Cho</p>
+        </li>
+
+        <li class="committee-card">
+          <div class="committee-photo-wrap">
+            <div class="committee-photo">
+              <img src="assets/images/lk_choi.jpg" alt="최룡국 운영위원" width="600" height="800" loading="lazy" decoding="async">
+            </div>
+            <div class="committee-photo-accent" aria-hidden="true"></div>
+          </div>
+          <h3 class="committee-name-kr">최룡국</h3>
+          <p class="committee-name-en" lang="en">Lyongguk Choi</p>
+        </li>
+      </ul>
     </div>
   </section>
   </main>
