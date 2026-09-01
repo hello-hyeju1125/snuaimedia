@@ -649,15 +649,19 @@
       font-weight: 600;
     }
 
-    /* ─── COMMITTEE ─── */
+    /* ─── COMMITTEE / ADVISORS ─── */
     .committee-section {
       background: var(--bg-white);
     }
 
+    .advisors-section {
+      background: var(--bg-light);
+    }
+
     .committee-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 48px 32px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 36px;
     }
 
     .committee-card {
@@ -704,12 +708,13 @@
       opacity: 0.28;
     }
 
-    .committee-subtitle {
-      font-size: 20px;
+    .committee-name {
+      font-family: var(--font-en);
+      font-size: 19px;
       font-weight: 700;
       color: var(--text-primary);
-      letter-spacing: -0.01em;
-      margin-bottom: 24px;
+      letter-spacing: 0.01em;
+      line-height: 1.35;
     }
 
     .committee-name-kr {
@@ -995,6 +1000,10 @@
         gap: 36px 20px;
       }
 
+      .committee-name {
+        font-size: 17px;
+      }
+
       .committee-name-kr {
         font-size: 19px;
       }
@@ -1069,6 +1078,10 @@
 
       .committee-grid {
         gap: 28px 16px;
+      }
+
+      .committee-name {
+        font-size: 15px;
       }
 
       .committee-name-kr {
@@ -1335,77 +1348,69 @@
     </div>
   </section>
 
-  <!-- COMMITTEE -->
+  <!-- EXECUTIVE COMMITTEE -->
   <section class="committee-section" aria-labelledby="section-committee">
     <div class="section">
-      <h2 id="section-committee" class="section-label reveal"><span lang="en">Steering Committee</span></h2>
-      <p class="committee-subtitle reveal">운영 위원</p>
+      <h2 id="section-committee" class="section-label reveal"><span lang="en">Executive Committee</span></h2>
       <div class="section-divider reveal" aria-hidden="true"></div>
       <ul class="committee-grid reveal" role="list">
         <li class="committee-card">
           <div class="committee-photo-wrap">
             <div class="committee-photo">
-              <img src="assets/images/sj_kim.jpeg" alt="김석준 운영위원" width="600" height="800" loading="lazy" decoding="async">
+              <img src="assets/images/sangkeun_lee.png" alt="Sangkeun Lee, Executive Committee" width="300" height="300" loading="lazy" decoding="async">
             </div>
             <div class="committee-photo-accent" aria-hidden="true"></div>
           </div>
-          <h3 class="committee-name-kr">김석준</h3>
-          <p class="committee-name-en" lang="en">Seokjun Kim</p>
+          <h3 class="committee-name" lang="en">Sangkeun Lee</h3>
         </li>
 
         <li class="committee-card">
           <div class="committee-photo-wrap">
             <div class="committee-photo">
-              <img src="assets/images/w_park.jpg" alt="박우 운영위원" width="600" height="800" loading="lazy" decoding="async">
+              <img src="assets/images/seokjun_kim.png" alt="Seokjun Kim, Executive Committee" width="300" height="300" loading="lazy" decoding="async">
             </div>
             <div class="committee-photo-accent" aria-hidden="true"></div>
           </div>
-          <h3 class="committee-name-kr">박우</h3>
-          <p class="committee-name-en" lang="en">Woo Park</p>
+          <h3 class="committee-name" lang="en">Seokjun Kim</h3>
         </li>
 
         <li class="committee-card">
           <div class="committee-photo-wrap">
             <div class="committee-photo">
-              <img src="assets/images/jh_yoo.png" alt="유제혁 운영위원" width="600" height="800" loading="lazy" decoding="async">
+              <img src="assets/images/jehyuk_yoo.png" alt="Jehyuk Yoo, Executive Committee" width="300" height="300" loading="lazy" decoding="async">
             </div>
             <div class="committee-photo-accent" aria-hidden="true"></div>
           </div>
-          <h3 class="committee-name-kr">유제혁</h3>
-          <p class="committee-name-en" lang="en">Jehyuk Yoo</p>
+          <h3 class="committee-name" lang="en">Jehyuk Yoo</h3>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ADVISORS -->
+  <section class="advisors-section" aria-labelledby="section-advisors">
+    <div class="section">
+      <h2 id="section-advisors" class="section-label reveal"><span lang="en">Advisors</span></h2>
+      <div class="section-divider reveal" aria-hidden="true"></div>
+      <ul class="committee-grid reveal" role="list">
+        <li class="committee-card">
+          <div class="committee-photo-wrap">
+            <div class="committee-photo">
+              <img src="assets/images/hocheol_choi.png" alt="Hocheol Choi, Advisor" width="300" height="300" loading="lazy" decoding="async">
+            </div>
+            <div class="committee-photo-accent" aria-hidden="true"></div>
+          </div>
+          <h3 class="committee-name" lang="en">Hocheol Choi</h3>
         </li>
 
         <li class="committee-card">
           <div class="committee-photo-wrap">
             <div class="committee-photo">
-              <img src="assets/images/s_lee.jpg" alt="이상근 운영위원" width="600" height="800" loading="lazy" decoding="async">
+              <img src="assets/images/seongeun_kim.png" alt="SeongEun Kim, Advisor" width="300" height="300" loading="lazy" decoding="async">
             </div>
             <div class="committee-photo-accent" aria-hidden="true"></div>
           </div>
-          <h3 class="committee-name-kr">이상근</h3>
-          <p class="committee-name-en" lang="en">Sanggeun Lee</p>
-        </li>
-
-        <li class="committee-card">
-          <div class="committee-photo-wrap">
-            <div class="committee-photo">
-              <img src="assets/images/ws_cho.jpeg" alt="조우순 운영위원" width="600" height="800" loading="lazy" decoding="async">
-            </div>
-            <div class="committee-photo-accent" aria-hidden="true"></div>
-          </div>
-          <h3 class="committee-name-kr">조우순</h3>
-          <p class="committee-name-en" lang="en">Woosoon Cho</p>
-        </li>
-
-        <li class="committee-card">
-          <div class="committee-photo-wrap">
-            <div class="committee-photo">
-              <img src="assets/images/choi.png" alt="최호철 운영위원" width="600" height="800" loading="lazy" decoding="async">
-            </div>
-            <div class="committee-photo-accent" aria-hidden="true"></div>
-          </div>
-          <h3 class="committee-name-kr">최호철</h3>
-          <p class="committee-name-en" lang="en">Hocheol Choi</p>
+          <h3 class="committee-name" lang="en">SeongEun Kim</h3>
         </li>
       </ul>
     </div>
